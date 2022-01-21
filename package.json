@@ -1,8 +1,7 @@
 {
   "name": "batin.sh",
-  "version": "1.0.0",
-  "private": true,
-  "description": "batin.sh",
+  "version": "0.0.1",
+  "description": "My personal website.",
   "author": "Batin EVIRGEN",
   "keywords": [
     "gatsby"
