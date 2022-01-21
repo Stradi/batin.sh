@@ -1,9 +1,11 @@
-import { PageProps } from "gatsby";
 import React from "react";
+import { PageProps } from "gatsby";
+
+import { NavigationBar } from "../components/NavigationBar";
 
 function IndexPage(props: PageProps) {
   return (
-    <div>batin.sh</div>
+    <NavigationBar />
   )
 }
 
