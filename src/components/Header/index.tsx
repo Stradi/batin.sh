@@ -1,2 +1,5 @@
-import { Header } from "./Header";
-export { Header };
+import { Header, HeaderProps } from "./Header";
+export {
+  Header,
+  type HeaderProps
+};

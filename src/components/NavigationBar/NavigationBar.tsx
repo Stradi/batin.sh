@@ -11,8 +11,8 @@ interface NavigationBarProps {
 NavigationBar.defaultProps = {
   brandText: "Brand",
   links: [
-    { text: "Link A", to: "/" },
-    { text: "Link B", to: "/" }
+    { text: "Link A", to: "/link-a" },
+    { text: "Link B", to: "/link-b" }
   ]
 };
 
@@ -35,4 +35,7 @@ function NavigationBar(props: NavigationBarProps) {
   )
 }
 
-export { NavigationBar };
+export {
+  NavigationBar,
+  type NavigationBarProps
+};

@@ -2,13 +2,13 @@ import { Link } from "gatsby";
 import React from "react";
 import cx from "classnames";
 
-interface NavigationItemProp {
+interface NavigationItemProps {
   to?: string;
   text?: string;
   isBrand?: boolean;
 }
 
-function NavigationItem(props: NavigationItemProp) {
+function NavigationItem(props: NavigationItemProps) {
   const classes = cx(
     "ml-8 font-medium",
     { "text-3xl text-black": props.isBrand },
@@ -28,4 +28,7 @@ NavigationItem.defaultProps = {
   isBrand: false
 }
 
-export { NavigationItem };
+export {
+  NavigationItem,
+  type NavigationItemProps
+};

@@ -59,4 +59,7 @@ function BigArticleList(props: BigArticleListProps) {
   )
 }
 
-export { BigArticleList }
+export {
+  BigArticleList,
+  type BigArticleListProps
+}

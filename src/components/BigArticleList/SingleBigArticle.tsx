@@ -34,4 +34,7 @@ function SingleBigArticle(props: SingleBigArticleProps) {
   )
 }
 
-export { SingleBigArticle };
+export {
+  SingleBigArticle,
+  type SingleBigArticleProps
+};

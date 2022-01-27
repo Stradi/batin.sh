@@ -23,4 +23,7 @@ function Footer(props: FooterProps) {
   )
 }
 
-export { Footer };
+export {
+  Footer,
+  type FooterProps
+};

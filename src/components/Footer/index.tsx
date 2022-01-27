@@ -1,2 +1,5 @@
-import { Footer } from "./Footer";
-export { Footer };
+import { Footer, FooterProps } from "./Footer";
+export {
+  Footer,
+  type FooterProps
+};

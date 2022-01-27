@@ -23,4 +23,7 @@ function Container(props: ContainerProps) {
   )
 }
 
-export { Container };
+export {
+  Container,
+  type ContainerProps
+};

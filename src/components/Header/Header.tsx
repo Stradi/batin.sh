@@ -23,4 +23,7 @@ function Header(props: HeaderProps) {
   )
 }
 
-export { Header };
+export {
+  Header,
+  type HeaderProps
+};
