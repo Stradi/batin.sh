@@ -13,13 +13,12 @@ Footer.defaultProps = {
 function Footer(props: FooterProps) {
   return (
     <footer className="text-center">
-      <p className="py-2 text-sm bg-black text-white">
-        { props.text }
-        <br></br>
+      <div className="py-2 text-sm bg-black text-white">
+        <p>{ props.text }</p>
         <div className="font-bold">
           { props.copyright } &copy; 2021
         </div>
-      </p>
+      </div>
     </footer>
   )
 }
