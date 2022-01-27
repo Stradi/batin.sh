@@ -8,9 +8,14 @@ import { Header } from "../components/Header/Header";
 // - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
 // changed into <Link to="articles" classNames="">articles</Link> and so on.
 function IndexPage(props: PageProps) {
+  const navigationLinks = [
+    { text: "Blog", to: "/blog" },
+    { text: "About", to: "/about" }
+  ];
+
   return (
     <React.Fragment>
-      <NavigationBar />
+      <NavigationBar brandText="Batın Evirgen" links={ navigationLinks } />
       <Header mainText="Hi, I am Batın">
         <div>
           Most of the time, I draw <b>stuff</b> with code.
