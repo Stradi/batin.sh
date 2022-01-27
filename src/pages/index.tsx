@@ -4,6 +4,7 @@ import { PageProps } from "gatsby";
 import { NavigationBar } from "../components/NavigationBar";
 import { Header } from "../components/Header";
 import { BigArticleList } from "../components/BigArticleList";
+import { Footer } from "../components/Footer";
 
 //TODO:
 // - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
@@ -26,6 +27,7 @@ function IndexPage(props: PageProps) {
         </div>
       </Header>
       <BigArticleList />
+      <Footer />
     </React.Fragment>
   )
 }
