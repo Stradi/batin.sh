@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../Container";
-import { SingleArticle } from "./SingleArticle";
+import { SingleBigArticle } from "./SingleBigArticle";
 
 type ArticleType = {
   title?: string;
@@ -10,12 +10,12 @@ type ArticleType = {
   excerpt?: string;
 }
 
-interface ArticlesProps {
+interface BigArticleListProps {
   title?: string;
   articles?: ArticleType[];
 }
 
-Articles.defaultProps = {
+BigArticleList.defaultProps = {
   title: "Articles",
   articles: [{
     title: "Normal Article Name",
@@ -38,14 +38,14 @@ Articles.defaultProps = {
   }]
 }
 
-function Articles(props: ArticlesProps) {
+function BigArticleList(props: BigArticleListProps) {
   return (
     <Container>
       <h2 className="text-5xl ml-4 pb-4 font-bold">{ props.title }</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
           props.articles.map(article => (
-            <SingleArticle
+            <SingleBigArticle
               title={ article.title }
               url={ article.url }
               thumbnailUrl={ article.thumbnailUrl }
@@ -59,4 +59,4 @@ function Articles(props: ArticlesProps) {
   )
 }
 
-export { Articles }
+export { BigArticleList }

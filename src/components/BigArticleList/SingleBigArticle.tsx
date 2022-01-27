@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-interface SingleArticleProps {
+interface SingleBigArticleProps {
   title?: string;
   url?: string;
   thumbnailUrl?: string;
@@ -9,7 +9,7 @@ interface SingleArticleProps {
   excerpt?: string;
 }
 
-SingleArticle.defaultProps = {
+SingleBigArticle.defaultProps = {
   title: "Article",
   url: "/article",
   thumbnailUrl: "https://via.placeholder.com/300",
@@ -17,7 +17,7 @@ SingleArticle.defaultProps = {
   excerpt: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus provident sit dolores itaque culpa soluta omnis veniam repellendus ad obcaecati voluptatem sunt tempore quidem quia nesciunt non, magni aliquid vel modi at blanditiis et officiis eveniet. Hic, minus cum. Beatae praesentium hic odio, doloremque aut iste dignissimos debitis. Quae, esse."
 }
 
-function SingleArticle(props: SingleArticleProps) {
+function SingleBigArticle(props: SingleBigArticleProps) {
   const truncatedExcerpt = props.excerpt.substring(0, 150) + "...";
   return (
     <Link to={ props.url }>
@@ -34,4 +34,4 @@ function SingleArticle(props: SingleArticleProps) {
   )
 }
 
-export { SingleArticle };
+export { SingleBigArticle };

@@ -2,8 +2,8 @@ import React from "react";
 import { PageProps } from "gatsby";
 
 import { NavigationBar } from "../components/NavigationBar";
-import { Header } from "../components/Header/Header";
-import { Articles } from "../components/Articles/Articles";
+import { Header } from "../components/Header";
+import { BigArticleList } from "../components/BigArticleList";
 
 //TODO:
 // - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
@@ -25,7 +25,7 @@ function IndexPage(props: PageProps) {
           I also try to write <b>articles</b> about <b>Generative Art</b>, <b>WebGL</b>, <b>Three.js</b>, <b>React</b> and more.
         </div>
       </Header>
-      <Articles />
+      <BigArticleList />
     </React.Fragment>
   )
 }
