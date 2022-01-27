@@ -6,6 +6,10 @@ interface ContainerProps {
   children: React.ReactNode;
 };
 
+Container.defaultProps = {
+  isCentered: true
+};
+
 function Container(props: ContainerProps) {
   const classes = cx(
     "container px-4",
@@ -17,10 +21,6 @@ function Container(props: ContainerProps) {
       { props.children }
     </div>
   )
-}
-
-Container.defaultProps = {
-  isCentered: true
 }
 
 export { Container };
