@@ -19,7 +19,13 @@ function IndexPage(props: PageProps) {
           I also try to write <b>articles</b> about <b>Generative Art</b>, <b>WebGL</b>, <b>Three.js</b>, <b>React</b> and more.
         </div>
       </Header>
-      <BigArticleList />
+      <BigArticleList
+        title="Featured Articles"
+        titleButton={{
+          text: "See all",
+          url: "/blog"
+        }}
+      />
     </Layout>
   )
 }
