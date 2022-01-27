@@ -53,9 +53,11 @@ function BigArticleList(props: BigArticleListProps) {
         <h2 className="text-5xl ml-4 font-bold">{ props.title }</h2>
         {
           props.titleButton && 
-          <div className="group text-lg mr-4 bg-gray-200 rounded-xl px-4 py-2 transition hover:bg-gray-300 hover:translate-x-2">
-            <Link to={ props.titleButton.url}>{ props.titleButton.text }</Link>
-          </div>
+          <Link to={ props.titleButton.url}>
+            <div className="group text-lg mr-4 bg-gray-200 rounded-xl px-4 py-2 transition hover:bg-gray-300 hover:translate-x-2">
+              { props.titleButton.text }
+            </div>
+          </Link>
         }
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
