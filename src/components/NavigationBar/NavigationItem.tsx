@@ -8,6 +8,12 @@ interface NavigationItemProps {
   isBrand?: boolean;
 }
 
+NavigationItem.defaultProps = {
+  to: "/",
+  text: "Default Link",
+  isBrand: false
+}
+
 function NavigationItem(props: NavigationItemProps) {
   const classes = cx(
     "ml-8 font-medium",
@@ -20,12 +26,6 @@ function NavigationItem(props: NavigationItemProps) {
       { props.text }
     </Link>
   )
-}
-
-NavigationItem.defaultProps = {
-  to: "",
-  text: "Default Link",
-  isBrand: false
 }
 
 export {
