@@ -18,7 +18,7 @@ SingleBigArticle.defaultProps = {
 }
 
 function SingleBigArticle(props: SingleBigArticleProps) {
-  const truncatedExcerpt = props.excerpt.substring(0, 150) + "...";
+  const truncatedExcerpt = props.excerpt.substring(0, 150);
   return (
     <Link to={ props.url }>
       <div className="m-2 p-2 rounded-xl bg-gray-200 transition ease-out hover:-translate-y-1">

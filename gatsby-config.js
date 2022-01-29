@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-      siteUrl: 'https://www.batin.sh',
+      siteUrl: "https://www.batin.sh",
       brand: "Batın Evirgen",
       navigationLinks: [
         { text: "Blog", to: "/blog" },
@@ -8,6 +8,14 @@ module.exports = {
       ]
     },
     plugins: [
-      'gatsby-plugin-postcss'
+      "gatsby-plugin-postcss",
+      {
+        resolve: "gatsby-source-filesystem",
+        options: {
+          name: "blog",
+          path: `${__dirname}/content/blog`
+        }
+      },
+      "gatsby-plugin-mdx"
     ]
 }
