@@ -1,14 +1,19 @@
 import React from "react";
-import { PageProps } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { Header } from "../components/Header";
-import { BigArticleList } from "../components/BigArticleList";
+import { ArticleList } from "../components/ArticleList/ArticleList";
+
+import { QueryUtils } from "../utils";
+import { GetAllArticlesQueryResult } from "../types";
 
 //TODO:
 // - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
 // changed into <Link to="articles" classNames="">articles</Link> and so on.
-function IndexPage(props: PageProps) {
+function IndexPage(props: PageProps<GetAllArticlesQueryResult>) {
+  const articles = QueryUtils.getAllArticles(props.data);
+
   return (
     <Layout>
       <Header mainText="Hi, I am Batın">
@@ -19,15 +24,26 @@ function IndexPage(props: PageProps) {
           I also try to write <b>articles</b> about <b>Generative Art</b>, <b>WebGL</b>, <b>Three.js</b>, <b>React</b> and more.
         </div>
       </Header>
-      <BigArticleList
-        title="Featured Articles"
-        titleButton={{
-          text: "See all",
-          url: "/blog"
-        }}
-      />
+      <ArticleList title="Latest Articles" articles={ articles } />
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      nodes {
+        frontmatter {
+          title
+          date(formatString: "MMMM D, YYYY")
+          author
+          tags
+        }
+        id
+        slug
+      }
+    }
+  }
+`;
 
 export default IndexPage;

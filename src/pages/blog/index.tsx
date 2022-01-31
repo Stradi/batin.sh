@@ -2,35 +2,17 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../../components/Layout";
-import { BigArticleList } from "../../components/BigArticleList";
+import { ArticleList } from "../../components/ArticleList";
 
-interface QueryResult {
-  allMdx: {
-    nodes: [{
-      frontmatter: {
-        title: string;
-        date: string;
-        author: string;
-      }
-      id: string;
-      slug: string;
-      excerpt: string;
-    }]
-  }
-}
+import { QueryUtils } from "../../utils";
+import { GetAllArticlesQueryResult } from "../../types";
 
-function BlogPage(props: PageProps<QueryResult>) {
-  const articles = props.data.allMdx.nodes.map(post => (
-    {
-      title: post.frontmatter.title,
-      url: post.slug,
-      author: post.frontmatter.author,
-      excerpt: post.excerpt
-    }
-  ));
+function BlogPage(props: PageProps<GetAllArticlesQueryResult>) {
+  const articles = QueryUtils.getAllArticles(props.data);
+
   return (
     <Layout>
-      <BigArticleList title="All Articles" articles={ articles } />
+      <ArticleList title="All Articles" articles={ articles } />
     </Layout>
   )
 }
@@ -43,10 +25,10 @@ export const query = graphql`
           title
           date(formatString: "MMMM D, YYYY")
           author
+          tags
         }
         id
         slug
-        excerpt(pruneLength: 75)
       }
     }
   }

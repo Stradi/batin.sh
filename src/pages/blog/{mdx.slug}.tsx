@@ -5,36 +5,28 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
 
-interface QueryResult {
-  mdx: {
-    frontmatter: {
-      title: string;
-      date: Date;
-      author: string;
-      tags: string[];
-    }
-    body: string;
-  }
-}
+import { DateUtils, QueryUtils } from "../../utils";
+import { GetArticleQueryResult } from "../../types";
 
-function BlogPost(props: PageProps<QueryResult>) {
+function BlogPost(props: PageProps<GetArticleQueryResult>) {
+  const article = QueryUtils.getArticle(props.data);
   return (
     <Layout>
       <Container>
         <div className="mt-8 prose prose-xl prose-headings:font-bold prose-headings:my-4 prose-p:my-4 max-w-none">
           <div className="text-center mb-16">
-            <p>Written by <span className="font-bold">{ props.data.mdx.frontmatter.author }</span> on { props.data.mdx.frontmatter.date }</p>
-            <h1>{ props.data.mdx.frontmatter.title }</h1>
+            <p>Written by <span className="font-bold">{ article.author }</span> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
+            <h1>{ article.title }</h1>
             <p>
               {
-                props.data.mdx.frontmatter.tags.map(tag => (
-                  <span className="bg-gray-300 mx-2 px-2 py-1 rounded-md">{ tag }</span>
+                article.tags.map(tag => (
+                  <span className="bg-gray-300 mx-2 px-2 py-1 rounded-md" key={ tag }>{ tag }</span>
                 )) 
               }
             </p>
           </div>
           <MDXRenderer>
-            { props.data.mdx.body }
+            { article.body }
           </MDXRenderer>
         </div>
       </Container>
