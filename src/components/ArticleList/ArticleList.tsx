@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Container } from "../Container";
 import { SingleArticle } from "./SingleArticle";
@@ -12,6 +12,7 @@ interface ArticleListProps {
   title?: string;
   articles?: ArticleType[];
   sort?: boolean;
+  addFilters?: boolean;
 }
 
 ArticleList.defaultProps = {
@@ -35,33 +36,58 @@ ArticleList.defaultProps = {
     tags: ["tag-c", "tag-b", "tag-a"],
     datePublished: new Date(2020, 11, 29, 12, 15)
   }],
-  sort: true
+  sort: true,
+  addFilters: false
 }
 
 function ArticleList(props: ArticleListProps) {
-  if(props.sort) {
-    props.articles.sort((a, b) => a.datePublished.getTime() - b.datePublished.getTime());
+  function sortAndSeperateArticles(array: ArticleType[], sort?: boolean): Record<number, object[]> {
+    if(sort) {
+      array.sort((a, b) => a.datePublished.getTime() - b.datePublished.getTime());
+    }
+
+    return seperateArrayByYears(array, "datePublished")
   }
-  
-  const articlesByYears = seperateArrayByYears(props.articles, "datePublished");
+
+  const [currentFilter, setCurrentFilter] = useState("");
+  const [filteredResults, setFilteredResults] = useState(sortAndSeperateArticles(props.articles, props.sort));
+
+  useEffect(() => {
+    const filtered = props.articles.filter((article) => article.title.toLowerCase().includes(currentFilter.toLowerCase()));
+    setFilteredResults(sortAndSeperateArticles(filtered));
+  }, [currentFilter]);
+
+  const articlesDOM = Object.keys(filteredResults).length > 0 ? (
+    <div>
+      {
+        Object.keys(filteredResults).reverse().map(year => (
+          <div key={ year }>
+            <h3 className="text-3xl font-bold mb-4">{ year }</h3>
+            {
+              filteredResults[year].map(v => (
+                <SingleArticle article={ v } key={ v.title } />
+              ))
+            }
+            </div>
+        ))
+      }
+    </div>
+  ) : (
+    <div className="text-3xl text-center font-bold">No results found :(</div>
+  )
 
   return (
     <Container>
-      <h2 className="mb-4 text-5xl font-bold">{ props.title }</h2>
-      <div>
-        {
-          Object.keys(articlesByYears).reverse().map(year => (
-            <div key={ year }>
-              <h3 className="text-3xl font-bold">{ year }</h3>
-              {
-                articlesByYears[year].map(v => (
-                  <SingleArticle article={ v } key={ v.title } />
-                ))
-              }
-              </div>
-          ))
-        }
-      </div>
+      <h2 className="text-5xl font-bold mb-4">{ props.title }</h2>
+      {
+        props.addFilters && <input
+          type="text"
+          onChange={ (e) => setCurrentFilter(e.target.value) }
+          placeholder="Search for something"
+          className="p-2 mb-4 w-full border-2 text-xl"  
+        />
+      }
+      { articlesDOM }
     </Container>
   )
 }

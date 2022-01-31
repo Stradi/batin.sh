@@ -12,7 +12,7 @@ function BlogPage(props: PageProps<GetAllArticlesQueryResult>) {
 
   return (
     <Layout>
-      <ArticleList title="All Articles" articles={ articles } />
+      <ArticleList title="All Articles" articles={ articles } addFilters />
     </Layout>
   )
 }
