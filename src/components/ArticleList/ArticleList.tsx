@@ -6,8 +6,6 @@ import { SingleArticle } from "./SingleArticle";
 import { seperateArrayByYears } from "../../utils/DateUtils";
 import { ArticleType } from "../../types";
 
-//TODO: Add filtering and searching for blog page to show all articles.
-
 interface ArticleListProps {
   title?: string;
   articles?: ArticleType[];
