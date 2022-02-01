@@ -1,40 +1,34 @@
 type ArticleType = {
   title?: string;
-  url?: string;
+  datePublished?: Date;
   author?: string;
   tags?: string[];
-  datePublished?: Date;
+  description?: string;
+
+  body?: string;
+  url?: string;
+}
+
+type ArticleQueryType = {
+  frontmatter: {
+    title?: string;
+    date?: Date;
+    author?: string;
+    tags?: string[];
+    description?: string;
+  },
+  slug?: string;
   body?: string;
 }
 
 type GetAllArticlesQueryResult = {
   allMdx: {
-    nodes: [{
-      frontmatter: {
-        title?: string;
-        date?: Date;
-        author?: string;
-        tags: string[];
-      },
-      id: string;
-      slug: string;
-      body: string;
-    }]
+    nodes: ArticleQueryType[]
   }
 }
 
 type GetArticleQueryResult = {
-  mdx: {
-    frontmatter: {
-      title?: string;
-      date?: Date;
-      author?: string;
-      tags?: string[];
-    },
-    id: string;
-    slug: string;
-    body: string;
-  }
+  mdx: ArticleQueryType
 }
 
 export {

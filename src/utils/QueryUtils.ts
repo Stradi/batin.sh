@@ -11,9 +11,9 @@ function getAllArticles(query: GetAllArticlesQueryResult, absoluteURL?: boolean)
           title: node.frontmatter.title,
           date: node.frontmatter.date,
           author: node.frontmatter.author,
-          tags: node.frontmatter.tags
+          tags: node.frontmatter.tags,
+          description: node.frontmatter.description
         },
-        id: node.id,
         slug: node.slug,
         body: node.body
       }
@@ -24,11 +24,12 @@ function getAllArticles(query: GetAllArticlesQueryResult, absoluteURL?: boolean)
 function getArticle(query: GetArticleQueryResult, absoluteURL?: boolean): ArticleType {
   return {
     title: query.mdx.frontmatter.title,
-    url: (absoluteURL || false) ? `/blog/${ query.mdx.slug }` : query.mdx.slug,
+    datePublished: new Date(query.mdx.frontmatter.date),
     author: query.mdx.frontmatter.author,
     tags: query.mdx.frontmatter.tags,
-    datePublished: new Date(query.mdx.frontmatter.date),
-    body: query.mdx.body
+    description: query.mdx.frontmatter.description,
+    url: (absoluteURL || false) ? `/blog/${ query.mdx.slug }` : query.mdx.slug,
+    body: query.mdx.body,
   }
 }
 
