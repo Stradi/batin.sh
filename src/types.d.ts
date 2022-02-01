@@ -7,6 +7,7 @@ type ArticleType = {
 
   body?: string;
   url?: string;
+  image?: string;
 }
 
 type ArticleQueryType = {
@@ -16,6 +17,9 @@ type ArticleQueryType = {
     author?: string;
     tags?: string[];
     description?: string;
+    image?: {
+      publicURL?: string;
+    };
   },
   slug?: string;
   body?: string;

@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
+import { SEO } from "../../components/SEO";
 
 import { DateUtils, QueryUtils } from "../../utils";
 import { GetArticleQueryResult } from "../../types";
@@ -12,6 +13,13 @@ function BlogPost(props: PageProps<GetArticleQueryResult>) {
   const article = QueryUtils.getArticle(props.data);
   return (
     <Layout>
+      <SEO
+        title={ article.title }
+        description={ article.description }
+        url={ article.url }
+        isArticle
+        image={ article.image }
+      />
       <Container>
         <div className="mt-8 prose prose-xl prose-headings:font-bold prose-headings:my-4 prose-p:my-4 max-w-none">
           <div className="text-center mb-16">
@@ -42,8 +50,13 @@ export const query = graphql`
         date(formatString: "MMMM D, YYYY")
         author
         tags
+        description
+        image {
+          publicURL
+        }
       }
       body
+      slug
     }    
   }
 `;

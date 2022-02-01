@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { NavigationBar, NavigationBarProps } from "../NavigationBar";
 import { Footer, FooterProps } from "../Footer";
+import { SEO } from "../SEO";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -38,6 +39,7 @@ function Layout(props: LayoutProps) {
 
   return (
     <div>
+      <SEO />
       <NavigationBar { ...navigationBarProps } />
       { props.children }
       <Footer { ...footerProps } />

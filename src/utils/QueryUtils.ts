@@ -12,7 +12,8 @@ function getAllArticles(query: GetAllArticlesQueryResult, absoluteURL?: boolean)
           date: node.frontmatter.date,
           author: node.frontmatter.author,
           tags: node.frontmatter.tags,
-          description: node.frontmatter.description
+          description: node.frontmatter.description,
+          image: node.frontmatter.image
         },
         slug: node.slug,
         body: node.body
@@ -28,6 +29,7 @@ function getArticle(query: GetArticleQueryResult, absoluteURL?: boolean): Articl
     author: query.mdx.frontmatter.author,
     tags: query.mdx.frontmatter.tags,
     description: query.mdx.frontmatter.description,
+    image: query.mdx.frontmatter.image ? query.mdx.frontmatter.image.publicURL : "",
     url: (absoluteURL || false) ? `/blog/${ query.mdx.slug }` : query.mdx.slug,
     body: query.mdx.body,
   }

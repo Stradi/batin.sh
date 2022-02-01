@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../../components/Layout";
 import { ArticleList } from "../../components/ArticleList";
+import { SEO } from "../../components/SEO";
 
 import { QueryUtils } from "../../utils";
 import { GetAllArticlesQueryResult } from "../../types";
@@ -12,6 +13,7 @@ function BlogPage(props: PageProps<GetAllArticlesQueryResult>) {
 
   return (
     <Layout>
+      <SEO title="Blog" />
       <ArticleList title="All Articles" articles={ articles } addFilters />
     </Layout>
   )
