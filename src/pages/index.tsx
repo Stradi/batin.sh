@@ -12,7 +12,7 @@ import { GetAllArticlesQueryResult } from "../types";
 // - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
 // changed into <Link to="articles" classNames="">articles</Link> and so on.
 function IndexPage(props: PageProps<GetAllArticlesQueryResult>) {
-  const articles = QueryUtils.getAllArticles(props.data);
+  const articles = QueryUtils.getAllArticles(props.data, true);
 
   return (
     <Layout>

@@ -18,6 +18,7 @@ type GetAllArticlesQueryResult = {
       },
       id: string;
       slug: string;
+      body: string;
     }]
   }
 }
@@ -30,6 +31,8 @@ type GetArticleQueryResult = {
       author?: string;
       tags?: string[];
     },
+    id: string;
+    slug: string;
     body: string;
   }
 }
