@@ -1,6 +1,7 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { GatsbyImage, getImageData } from "gatsby-plugin-image";
 
 import { Layout } from "../../components/Layout";
 import { Container } from "../../components/Container";
@@ -18,7 +19,7 @@ function BlogPost(props: PageProps<GetArticleQueryResult>) {
         description={ article.description }
         url={ article.url }
         isArticle
-        image={ article.image }
+        image={ article.image.publicURL }
       />
       <Container>
         <div className="mt-8 prose prose-xl prose-headings:font-bold prose-headings:my-4 prose-p:my-4 max-w-none">
@@ -32,6 +33,7 @@ function BlogPost(props: PageProps<GetArticleQueryResult>) {
                 )) 
               }
             </p>
+            { article.image.data && <GatsbyImage image={ article.image.data } alt="Cover image" /> }
           </div>
           <MDXRenderer>
             { article.body }
@@ -53,6 +55,9 @@ export const query = graphql`
         description
         image {
           publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       body

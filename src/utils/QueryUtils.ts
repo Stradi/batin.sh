@@ -29,7 +29,10 @@ function getArticle(query: GetArticleQueryResult, absoluteURL?: boolean): Articl
     author: query.mdx.frontmatter.author,
     tags: query.mdx.frontmatter.tags,
     description: query.mdx.frontmatter.description,
-    image: query.mdx.frontmatter.image ? query.mdx.frontmatter.image.publicURL : "",
+    image: query.mdx.frontmatter.image && {
+      publicURL: query.mdx.frontmatter.image.publicURL,
+      data: query.mdx.frontmatter.image.childImageSharp.gatsbyImageData
+    },
     url: (absoluteURL || false) ? `/blog/${ query.mdx.slug }` : query.mdx.slug,
     body: query.mdx.body,
   }

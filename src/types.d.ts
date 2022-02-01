@@ -1,3 +1,5 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 type ArticleType = {
   title?: string;
   datePublished?: Date;
@@ -7,7 +9,10 @@ type ArticleType = {
 
   body?: string;
   url?: string;
-  image?: string;
+  image?: {
+    publicURL?: string;
+    data?: IGatsbyImageData;
+  }
 }
 
 type ArticleQueryType = {
@@ -19,6 +24,9 @@ type ArticleQueryType = {
     description?: string;
     image?: {
       publicURL?: string;
+      childImageSharp?: {
+        gatsbyImageData?: IGatsbyImageData;
+      }
     };
   },
   slug?: string;
