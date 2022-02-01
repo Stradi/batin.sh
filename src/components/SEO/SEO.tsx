@@ -36,8 +36,6 @@ function SEO(props: SEOProps) {
   const image = props.image ? `${ data.site.siteMetadata.siteUrl }${ props.image }` : undefined;
   const twitterHandle = data.site.siteMetadata.seo.twitterHandle;
 
-  console.log(image);
-
   return (
     <Helmet
       title={ title }
