@@ -21,12 +21,18 @@ function BlogPage(props: PageProps<GetAllArticlesQueryResult>) {
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { source: { eq: "blog" }}}
+    ) {
       nodes {
         frontmatter {
           title
           date(formatString: "MMMM D, YYYY")
           tags
+        }
+        fields {
+          source
         }
         id
         slug

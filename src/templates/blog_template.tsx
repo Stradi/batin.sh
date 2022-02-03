@@ -3,14 +3,14 @@ import { PageProps, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImageData } from "gatsby-plugin-image";
 
-import { Layout } from "../../components/Layout";
-import { Container } from "../../components/Container";
-import { SEO } from "../../components/SEO";
+import { Layout } from "../components/Layout";
+import { Container } from "../components/Container";
+import { SEO } from "../components/SEO";
 
-import { DateUtils, QueryUtils } from "../../utils";
-import { GetArticleQueryResult } from "../../types";
+import { DateUtils, QueryUtils } from "../utils";
+import { GetArticleQueryResult } from "../types";
 
-function BlogPost(props: PageProps<GetArticleQueryResult>) {
+function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
   const article = QueryUtils.getArticle(props.data);
   return (
     <Layout>
@@ -66,4 +66,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPost;
+export default BlogTemplate;

@@ -1,4 +1,4 @@
-import { ArticleType, GetAllArticlesQueryResult, GetArticleQueryResult } from "../types";
+import { ArticleType, GetAllArticlesQueryResult, GetArticleQueryResult, GetPageQueryResult, PageType } from "../types";
 
 //TODO: Maybe find a way to create hook for queries.
 // For example useGetAllArticles() hook would return ArticleType[] etc.
@@ -38,7 +38,18 @@ function getArticle(query: GetArticleQueryResult, absoluteURL?: boolean): Articl
   }
 }
 
+function getPage(query: GetPageQueryResult): PageType {
+  return {
+    title: query.mdx.frontmatter.title,
+    dateUpdated: query.mdx.frontmatter.dateUpdated,
+    description: query.mdx.frontmatter.description,
+    url: query.mdx.slug,
+    body: query.mdx.body
+  }
+}
+
 export {
   getAllArticles,
-  getArticle
+  getArticle,
+  getPage
 };

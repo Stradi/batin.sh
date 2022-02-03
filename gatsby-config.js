@@ -26,6 +26,13 @@ module.exports = {
         }
       },
       {
+        resolve: "gatsby-source-filesystem",
+        options: {
+          name: "page",
+          path: `${__dirname}/content/pages`
+        }
+      },
+      {
         resolve: "gatsby-plugin-mdx",
         options: {
           gatsbyRemarkPlugins: [{

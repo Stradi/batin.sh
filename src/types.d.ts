@@ -15,6 +15,15 @@ type ArticleType = {
   }
 }
 
+type PageType = {
+  title?: string;
+  dateUpdated?: Date;
+  description?: string;
+
+  body?: string;
+  url?: string;
+}
+
 type ArticleQueryType = {
   frontmatter: {
     title?: string;
@@ -29,6 +38,20 @@ type ArticleQueryType = {
       }
     };
   },
+  fields?: {
+    source?: string;
+  }
+  slug?: string;
+  body?: string;
+}
+
+type PageQueryType = {
+  frontmatter: {
+    title?: string;
+    dateUpdated?: Date;
+    description?: string;
+
+  }
   slug?: string;
   body?: string;
 }
@@ -43,8 +66,14 @@ type GetArticleQueryResult = {
   mdx: ArticleQueryType
 }
 
+type GetPageQueryResult = {
+  mdx: PageQueryType
+}
+
 export {
   ArticleType,
+  PageType,
   GetAllArticlesQueryResult,
-  GetArticleQueryResult
+  GetArticleQueryResult,
+  GetPageQueryResult
 };
