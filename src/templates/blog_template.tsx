@@ -1,7 +1,7 @@
 import React from "react";
-import { PageProps, graphql } from "gatsby";
+import { PageProps, graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { GatsbyImage, getImageData } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Layout } from "../components/Layout";
 import { Container } from "../components/Container";
@@ -26,13 +26,13 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
           <div className="text-center mb-16">
             <p>Written by <span className="font-bold">{ article.author }</span> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
             <h1>{ article.title }</h1>
-            <p>
+            <div className="py-4">
               {
                 article.tags.map(tag => (
-                  <span className="bg-gray-300 mx-2 px-2 py-1 rounded-md" key={ tag }>{ tag }</span>
+                  <Link className="bg-gray-300 mx-2 px-2 py-1 rounded-md font-normal no-underline transition hover:bg-gray-400 hover:underline" key={ tag } to={ `/tag/${ tag }` }>{ tag }</Link>
                 )) 
               }
-            </p>
+            </div>
             { article.image.data && <GatsbyImage image={ article.image.data } alt="Cover image" /> }
           </div>
           <MDXRenderer>

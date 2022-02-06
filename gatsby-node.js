@@ -1,5 +1,6 @@
 const BLOG_TEMPLATE_PATH = "./src/templates/blog_template.tsx";
 const PAGE_TEMPLATE_PATH = "./src/templates/page_template.tsx";
+const TAG_TEMPLATE_PATH = "./src/templates/tag_template.tsx";
 
 function onCreateNode({ node, getNode, actions }) {
   const { createNodeField } = actions;
@@ -45,6 +46,8 @@ async function createPages({ actions, graphql }) {
   }
   `);
 
+  const uniqueTags = new Set();
+
   data.allMdx.nodes.forEach(node => {
     const sourceName = node.fields.source;
     const slug = node.slug;
@@ -54,6 +57,9 @@ async function createPages({ actions, graphql }) {
     let component;
     
     if(sourceName == "blog") {
+      const tags = node.frontmatter.tags;
+      tags.forEach(tag => uniqueTags.add(tag));
+
       path = `/blog/${ slug }`;
       component = require.resolve(BLOG_TEMPLATE_PATH);
     } else if(sourceName == "page") {
@@ -66,6 +72,16 @@ async function createPages({ actions, graphql }) {
       component,
       context: {
         id
+      }
+    });
+  });
+  
+  uniqueTags.forEach(tag => {    
+    actions.createPage({
+      path: `/tag/${ tag }`,
+      component: require.resolve(TAG_TEMPLATE_PATH),
+      context: {
+        tag
       }
     });
   });
