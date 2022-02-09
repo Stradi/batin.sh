@@ -4,16 +4,19 @@ import cx from "classnames";
 interface ContainerProps {
   isCentered?: boolean;
   children: React.ReactNode;
+  className?: string;
 };
 
 Container.defaultProps = {
-  isCentered: true
+  isCentered: true,
+  className: ""
 };
 
 function Container(props: ContainerProps) {
   const classes = cx(
     "container px-4",
-    { "mx-auto": props.isCentered }
+    { "mx-auto": props.isCentered }, 
+    props.className
   )
 
   return (
