@@ -1,3 +1,13 @@
+function withOpacity(variable) {
+  return (arg) => {
+    if(arg && arg.opacityValue) {
+      return `rgba(var(${ variable }), ${ arg.opacityValue || "1" })`;
+    } else {
+      return `rgb(var(${ variable }))`;
+    }
+  };
+}
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -9,7 +19,37 @@ module.exports = {
         xl: "960px"
       }
     },
-    extend: {},
+    extend: {
+      colors: {
+        "background": withOpacity("--color-background"),
+        "surface": withOpacity("--color-surface"),
+        "primary": withOpacity("--color-primary"),
+        "secondary": withOpacity("--color-secondary"),
+        "on-background": withOpacity("--color-on-background"),
+        "on-surface": withOpacity("--color-on-surface"),
+        "on-primary": withOpacity("--color-on-primary"),
+        "on-secondary": withOpacity("--color-on-secondary"),
+        "surface-hover": withOpacity("--color-surface-hover")
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            "*": {
+              color: withOpacity("--color-on-background")()
+            },
+            "h1, h2, h3, h4, th": {
+              fontWeight: "700",
+              marginBottom: "1rem !important",
+              marginTop: "1rem !important"
+            },
+            p: {
+              marginBottom: "1rem",
+              marginTop: "1rem"
+            }
+          }
+        }
+      }
+    },
   },
   plugins: [
     require("@tailwindcss/typography")

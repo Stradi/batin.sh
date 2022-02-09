@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TODO: Add secondary colors and more themes. */
+:root {
+  --color-primary-100: 255, 202, 205;
+  --color-primary-200: 249, 148, 143;
+  --color-primary-400: 251, 66, 58;
+  --color-primary-500: 255, 42, 20;
+}
+
+@layer base {
+  [data-theme="minimal"] {
+    --color-background: 255, 255, 255;
+    --color-surface: 230, 230, 230;
+    --color-primary: var(--color-primary-500);
+    --color-secondary: var(--color-primary-200);
+    --color-on-background: 0, 0, 0;
+    --color-on-surface: 0, 0, 0;
+    --color-on-primary: 0, 0, 0;
+    --color-on-secondary: 0, 0, 0;
+    --color-surface-hover: 210, 210, 210;
+  }
+  
+  [data-theme="dark"] {
+    --color-background: 18, 18, 18;
+    --color-surface: 13, 13, 13;
+    --color-primary: var(--color-primary-300);
+    --color-secondary: var(--color-primary-200);
+    --color-on-background: 240, 240, 240;
+    --color-on-surface: 240, 240, 240;
+    --color-on-primary: 0, 0, 0;
+    --color-on-secondary: 0, 0, 0;
+    --color-surface-hover: 30, 30, 30;
+  }
+}

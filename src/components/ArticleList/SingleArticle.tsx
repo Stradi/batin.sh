@@ -20,7 +20,7 @@ function SingleArticle(props: SingleArticleProps) {
   return (
     <div>
       <Link to={ props.article.url }>
-        <div className="flex justify-between mx-2 p-4 transition hover:bg-gray-200 hover:underline">
+        <div className="flex justify-between m-2 p-4 transition bg-surface hover:bg-surface-hover">
           <p>{ props.article.title }</p>
           <span>{ DateUtils.toShortDate(props.article.datePublished) }</span>
         </div>

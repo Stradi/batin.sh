@@ -16,9 +16,9 @@ NavigationItem.defaultProps = {
 
 function NavigationItem(props: NavigationItemProps) {
   const classes = cx(
-    "ml-8 font-medium",
-    { "text-3xl text-black": props.isBrand },
-    { "text-lg text-gray-700 hover:text-black hover:underline": !props.isBrand }
+    "mx-2 px-4 font-medium text-on-surface transition hover:text-primary",
+    { "text-3xl": props.isBrand },
+    { "text-lg": !props.isBrand }
   )
 
   return (

@@ -38,7 +38,7 @@ function Layout(props: LayoutProps) {
   }
 
   return (
-    <div>
+    <div className="bg-background text-on-background">
       <SEO />
       <NavigationBar { ...navigationBarProps } />
       { props.children }

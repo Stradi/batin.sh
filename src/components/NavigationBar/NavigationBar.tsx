@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Container } from "../Container";
+import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import { NavigationItem } from "./NavigationItem";
 
 interface NavigationBarProps {
@@ -19,7 +20,7 @@ NavigationBar.defaultProps = {
 function NavigationBar(props: NavigationBarProps) {
   return (
     <Container>
-      <header className="sm:flex sm:justify-between sm:items-center py-4">
+      <header className="sm:flex sm:justify-between sm:items-center py-4 bg-background text-on-surface">
         <div className="text-center pb-4 sm:pb-0">
           <NavigationItem text={ props.brandText } isBrand />
         </div>
@@ -29,6 +30,7 @@ function NavigationBar(props: NavigationBarProps) {
             <NavigationItem to={ link.to } text={ link.text } key={ link.to } />
           ))
           }
+          <ThemeSwitcher />
         </nav>
       </header>
     </Container>
