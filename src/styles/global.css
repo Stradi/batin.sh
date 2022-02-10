@@ -36,3 +36,15 @@
     --color-surface-hover: 30, 30, 30;
   }
 }
+
+.gatsby-highlight pre[class*="language-"] {
+  @apply py-2 px-4 rounded-none
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  @apply p-0 pl-14 py-2;
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers > span {
+  @apply pl-4 py-2;
+}
