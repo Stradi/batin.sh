@@ -1,9 +1,9 @@
-function withOpacity(variable) {
+function withOpacity(variable, isImportant = false) {
   return (arg) => {
     if(arg && arg.opacityValue) {
-      return `rgba(var(${ variable }), ${ arg.opacityValue || "1" })`;
+      return `rgba(var(${ variable }), ${ arg.opacityValue || "1" }) ${ isImportant ? "!important" : ""}`;
     } else {
-      return `rgb(var(${ variable }))`;
+      return `rgb(var(${ variable })) ${ isImportant ? "!important" : ""}`;
     }
   };
 }
@@ -49,7 +49,7 @@ module.exports = {
             a: {
               color: withOpacity("--color-on-background")(),
               "&:hover": {
-                color: "#ff0000 !important"
+                color: withOpacity("--color-primary", true)()
               }
             }
           }
