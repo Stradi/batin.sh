@@ -29,7 +29,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
             <div className="py-4">
               {
                 article.tags.map(tag => (
-                  <Link className="bg-surface text-on-surface mx-2 px-2 py-1 rounded-md font-normal no-underline transition hover:bg-surface-hover" key={ tag } to={ `/tag/${ tag }` }>{ tag }</Link>
+                  <Link className="bg-surface text-on-surface mx-2 px-2 py-1 font-normal no-underline transition hover:bg-surface-hover" key={ tag } to={ `/tag/${ tag }` }>{ tag }</Link>
                 )) 
               }
             </div>

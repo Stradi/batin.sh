@@ -45,6 +45,12 @@ module.exports = {
             p: {
               marginBottom: "1rem",
               marginTop: "1rem"
+            },
+            a: {
+              color: withOpacity("--color-on-background")(),
+              "&:hover": {
+                color: "#ff0000 !important"
+              }
             }
           }
         }

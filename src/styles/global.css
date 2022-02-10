@@ -37,6 +37,10 @@
   }
 }
 
+code[class*="language-"] {
+  @apply rounded-none before:content-none after:content-none px-2 !important
+}
+
 .gatsby-highlight pre[class*="language-"] {
   @apply py-2 px-4 rounded-none
 }
