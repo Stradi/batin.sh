@@ -38,10 +38,12 @@ function Layout(props: LayoutProps) {
   }
 
   return (
-    <div className="bg-background text-on-background">
+    <div className="min-h-screen flex flex-col bg-background text-on-background">
       <SEO />
       <NavigationBar { ...navigationBarProps } />
-      { props.children }
+      <div className="flex-1">
+        { props.children }
+      </div>
       <Footer { ...footerProps } />
     </div>
   )
