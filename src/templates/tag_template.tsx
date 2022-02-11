@@ -10,7 +10,6 @@ import { QueryUtils } from "../utils";
 
 function TagTemplate(props: PageProps<GetAllArticlesQueryResult>) {
   const articles = QueryUtils.getAllArticles(props.data, true);
-  console.log(props);
 
   return (
     <Layout>

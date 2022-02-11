@@ -1,7 +1,10 @@
 import React from "react";
 
-import Sketch from "react-p5";
+import Loadable from "@loadable/component";
+
+const Sketch = Loadable(() => import("react-p5"));
 import p5 from "react-p5/node_modules/@types/p5";
+
 
 interface SketchEvents {
   setup: (p5Instance: p5, canvasElement: Element) => void;
