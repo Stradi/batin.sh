@@ -52,3 +52,7 @@ code[class*="language-"] {
 .gatsby-highlight pre[class*="language-"].line-numbers > span {
   @apply pl-4 py-2;
 }
+
+.p5Canvas {
+  @apply mx-auto ring-2 ring-primary;
+}

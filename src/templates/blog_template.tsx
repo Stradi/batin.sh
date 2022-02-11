@@ -1,6 +1,7 @@
 import React from "react";
 import { PageProps, graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Layout } from "../components/Layout";
@@ -10,8 +11,14 @@ import { SEO } from "../components/SEO";
 import { DateUtils, QueryUtils } from "../utils";
 import { GetArticleQueryResult } from "../types";
 
+import { p5Wrapper } from "../components/p5Wrapper";
+
 function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
   const article = QueryUtils.getArticle(props.data);
+
+  const shortcodes = {
+    p5Wrapper
+  }
   return (
     <Layout>
       <SEO
@@ -35,9 +42,13 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
             </div>
             { article.image.data && <GatsbyImage image={ article.image.data } alt="Cover image" /> }
           </div>
-          <MDXRenderer>
-            { article.body }
-          </MDXRenderer>
+          <MDXProvider components={ shortcodes }>
+            <MDXRenderer>
+              { article.body }
+            </MDXRenderer>
+          </MDXProvider>
+          {/* <MDXRenderer>
+          </MDXRenderer> */}
         </div>
       </Container>
     </Layout>
