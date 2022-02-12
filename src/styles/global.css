@@ -54,5 +54,5 @@ code[class*="language-"] {
 }
 
 .p5Canvas {
-  @apply mx-auto ring-2 ring-primary;
+  @apply mx-auto ring-2 ring-primary max-w-lg w-full;
 }
