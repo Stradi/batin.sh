@@ -29,7 +29,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
         image={ article.image.publicURL }
       />
       <Container>
-        <div className="mt-8 prose prose-xl prose-headings:my-4 prose-p:my-4 max-w-none">
+        <div className="mt-8 prose md:prose-xl prose-headings:my-4 prose-p:my-4 max-w-none">
           <div className="text-center">
             <p>Written by <span className="font-bold text-primary">{ article.author }</span> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
             <h1>{ article.title }</h1>
@@ -47,8 +47,6 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
               { article.body }
             </MDXRenderer>
           </MDXProvider>
-          {/* <MDXRenderer>
-          </MDXRenderer> */}
         </div>
       </Container>
     </Layout>
