@@ -65,7 +65,7 @@ export const query = graphql`
         image {
           publicURL
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(aspectRatio: 1.717)
           }
         }
       }
