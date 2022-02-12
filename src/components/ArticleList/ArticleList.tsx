@@ -60,7 +60,7 @@ function ArticleList(props: ArticleListProps) {
       {
         Object.keys(filteredResults).reverse().map(year => (
           <div key={ year }>
-            <h3 className="text-3xl font-bold mb-4">{ year }</h3>
+            <h3 className="text-xl md:text-3xl font-bold mb-4">{ year }</h3>
             {
               filteredResults[year].map(v => (
                 <SingleArticle article={ v } key={ v.title } />
@@ -76,7 +76,7 @@ function ArticleList(props: ArticleListProps) {
 
   return (
     <Container>
-      <h2 className="text-5xl font-bold mb-4 p-2 bg-background text-on-surface">{ props.title }</h2>
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 p-2 bg-background text-on-surface">{ props.title }</h2>
       {
         props.addFilters && <input
           type="text"
