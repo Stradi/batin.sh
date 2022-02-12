@@ -18,14 +18,12 @@ SingleArticle.defaultProps = {
 
 function SingleArticle(props: SingleArticleProps) {
   return (
-    <div>
-      <Link to={ props.article.url }>
-        <div className="flex justify-between m-2 p-4 transition bg-surface hover:bg-surface-hover">
-          <p>{ props.article.title }</p>
-          <span>{ DateUtils.toShortDate(props.article.datePublished) }</span>
-        </div>
-      </Link>
-    </div>
+    <Link to={ props.article.url } className="my-2">
+      <div className="flex justify-between transition mb-2 p-4 bg-surface hover:bg-surface-hover">
+        <p>{ props.article.title }</p>
+        <span>{ DateUtils.toShortDate(props.article.datePublished) }</span>
+      </div>
+    </Link>
   )
 }
 

@@ -76,13 +76,13 @@ function ArticleList(props: ArticleListProps) {
 
   return (
     <Container>
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 p-2 bg-background text-on-surface">{ props.title }</h2>
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-background text-on-surface">{ props.title }</h2>
       {
         props.addFilters && <input
           type="text"
           onChange={ (e) => setCurrentFilter(e.target.value) }
           placeholder="Search for something"
-          className="p-2 mb-4 w-full border-2 border-surface-hover text-xl bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-surface-hover"  
+          className="p-2 mb-4 w-full text-xl bg-surface text-on-surface"  
         />
       }
       { articlesDOM }
