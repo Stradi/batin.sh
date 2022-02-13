@@ -26,7 +26,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
         description={ article.description }
         url={ article.url }
         isArticle
-        image={ article.image.publicURL }
+        image={ article.image && article.image.publicURL }
       />
       <Container>
         <div className="mt-8 prose md:prose-xl prose-headings:my-4 prose-p:my-4 max-w-none">
@@ -40,7 +40,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
                 )) 
               }
             </div>
-            { article.image.data && <GatsbyImage image={ article.image.data } alt="Cover image" /> }
+            { article.image && article.image.data && <GatsbyImage image={ article.image.data } alt="Cover image" /> }
           </div>
           <MDXProvider components={ shortcodes }>
             <MDXRenderer>
