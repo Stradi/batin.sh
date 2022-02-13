@@ -35,14 +35,26 @@ module.exports = {
       {
         resolve: "gatsby-plugin-mdx",
         options: {
-          gatsbyRemarkPlugins: [{
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750
+          gatsbyRemarkPlugins: [
+            {
+              resolve: "gatsby-remark-images",
+              options: {
+                maxWidth: 750
+              }
+            },
+            {
+              resolve: "gatsby-remark-prismjs"
+            },
+            {
+              resolve: "gatsby-remark-katex",
+              options: {
+                strict: "ignore"
+              }
             }
-          }, {
-            resolve: "gatsby-remark-prismjs"
-          }]
+          ],
+          remarkPlugins: [
+            require("remark-math")
+          ]
         }
       },
       "gatsby-plugin-sitemap"
