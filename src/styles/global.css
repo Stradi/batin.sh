@@ -17,7 +17,7 @@
     --color-secondary: var(--color-primary-200);
     --color-on-background: 0, 0, 0;
     --color-on-surface: 0, 0, 0;
-    --color-on-primary: 0, 0, 0;
+    --color-on-primary: 255, 255, 255;
     --color-on-secondary: 0, 0, 0;
 
     --color-surface-hover: 210, 210, 210;
@@ -35,6 +35,14 @@
     
     --color-surface-hover: 30, 30, 30;
   }
+}
+
+.prose a {
+  @apply decoration-primary !important
+}
+
+.prose a:hover {
+  @apply bg-primary text-on-primary !important
 }
 
 code[class*="language-"] {
