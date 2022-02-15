@@ -40,7 +40,8 @@ module.exports = {
             "h1, h2, h3, h4, th": {
               fontWeight: "700",
               marginBottom: "1rem !important",
-              marginTop: "1rem !important"
+              marginTop: "1rem !important",
+              fontFamily: "Merriweather, serif"
             },
             p: {
               marginBottom: "1rem",
@@ -54,6 +55,10 @@ module.exports = {
             }
           }
         }
+      },
+      fontFamily: {
+        "display": "Merriweather, serif",
+        "body": "Source Sans Pro, sans-serif"
       }
     },
   },

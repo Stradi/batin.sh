@@ -31,7 +31,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
       <Container>
         <div className="mt-8 prose md:prose-xl prose-headings:my-4 prose-p:my-4 max-w-none">
           <div className="text-center">
-            <p>Written by <span className="font-bold text-primary">{ article.author }</span> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
+            <p>Written by <Link to="/about" className="font-bold text-primary">{ article.author }</Link> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
             <h1>{ article.title }</h1>
             <div className="py-4">
               {

@@ -71,12 +71,12 @@ function ArticleList(props: ArticleListProps) {
       }
     </div>
   ) : (
-    <div className="text-3xl text-center font-bold">No results found :(</div>
+    <div className="text-3xl text-center font-display font-bold">No results found :(</div>
   )
 
   return (
     <Container>
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-background text-on-surface">{ props.title }</h2>
+      <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 bg-background text-on-surface">{ props.title }</h2>
       {
         props.addFilters && <input
           type="text"

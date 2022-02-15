@@ -38,7 +38,7 @@ function Layout(props: LayoutProps) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-on-background">
+    <div className="min-h-screen flex flex-col bg-background text-on-background font-body">
       <SEO />
       <NavigationBar { ...navigationBarProps } />
       <div className="flex-1">
