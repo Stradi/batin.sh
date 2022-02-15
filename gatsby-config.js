@@ -54,6 +54,10 @@ module.exports = {
           ],
           remarkPlugins: [
             require("remark-math")
+          ],
+          rehypePlugins: [
+            require("rehype-slug"),
+            [require("rehype-autolink-headings"), { behaviour: "wrap" }]
           ]
         }
       },
