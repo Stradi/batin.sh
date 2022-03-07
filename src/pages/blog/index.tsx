@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../../components/Layout";
-import { ArticleList } from "../../components/ArticleList";
+import { SmallArticleList } from "../../components/SmallArticleList";
 import { SEO } from "../../components/SEO";
 
 import { QueryUtils } from "../../utils";
@@ -14,7 +14,7 @@ function BlogPage(props: PageProps<GetAllArticlesQueryResult>) {
   return (
     <Layout>
       <SEO title="Blog" />
-      <ArticleList title="All Articles" articles={ articles } addFilters />
+      <SmallArticleList title="All Articles" articles={ articles } addFilters />
     </Layout>
   )
 }

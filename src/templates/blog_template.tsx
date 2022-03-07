@@ -29,14 +29,14 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
         image={ article.image && article.image.publicURL }
       />
       <Container>
-        <div className="mt-8 prose md:prose-xl prose-headings:my-4 prose-p:my-4 max-w-none">
+        <div className="mt-8 prose md:prose-xl max-w-none">
           <div className="text-center">
-            <p>Written by <Link to="/about" className="font-bold text-primary">{ article.author }</Link> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
+            <p>Written by <Link to="/about" className="font-bold text-primary px-2 py-1 transition duration-100 hover:bg-surface-hover">{ article.author }</Link> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
             <h1>{ article.title }</h1>
             <div className="py-4">
               {
                 article.tags.map(tag => (
-                  <Link className="bg-surface text-on-surface mx-2 px-2 py-1 font-normal no-underline transition hover:bg-surface-hover" key={ tag } to={ `/tag/${ tag }` }>{ tag }</Link>
+                  <Link className="bg-surface text-on-surface mx-1 px-2 py-1 font-normal transition duration-100 hover:bg-surface-hover" key={ tag } to={ `/tag/${ tag }` }>{ tag }</Link>
                 )) 
               }
             </div>

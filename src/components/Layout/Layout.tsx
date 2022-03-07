@@ -29,7 +29,7 @@ function Layout(props: LayoutProps) {
   `);
 
   const navigationBarProps: NavigationBarProps = {
-    brandText: data.site.siteMetadata.brand,
+    brandText: "be.",
     links: data.site.siteMetadata.navigationLinks
   };
 
@@ -41,7 +41,7 @@ function Layout(props: LayoutProps) {
     <div className="min-h-screen flex flex-col bg-background text-on-background font-body">
       <SEO />
       <NavigationBar { ...navigationBarProps } />
-      <div className="flex-1">
+      <div className="flex-1 mt-4">
         { props.children }
       </div>
       <Footer { ...footerProps } />

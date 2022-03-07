@@ -19,9 +19,9 @@ function PageTemplate(props: PageProps<GetPageQueryResult>) {
         url={ page.url }
       />
       <Container>
-        <div className="mt-8 prose prose-xl max-w-none">
+        <div className="mt-8 prose md:prose-xl max-w-none">
           <div className="text-center mb-8">
-            <p>Last updated on <span className="font-bold text-primary">{ DateUtils.toReadableFullDate(new Date(page.dateUpdated)) }</span></p>
+            <p>Last updated on <span>{ DateUtils.toReadableFullDate(new Date(page.dateUpdated)) }</span></p>
             <h1>{ page.title }</h1>
           </div>
           <MDXRenderer>

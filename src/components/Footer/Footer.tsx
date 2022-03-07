@@ -16,7 +16,7 @@ function Footer(props: FooterProps) {
       <div className="py-2 text-sm bg-black text-white">
         <p>{ props.text }</p>
         <div className="font-bold">
-          { props.copyright } &copy; 2021
+          { props.copyright } &copy; 2022
         </div>
       </div>
     </footer>

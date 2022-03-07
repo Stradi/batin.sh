@@ -57,7 +57,7 @@ type PageQueryType = {
 }
 
 type GetAllArticlesQueryResult = {
-  allMdx: {
+  [N in "allMdx" | "featured"]: {
     nodes: ArticleQueryType[]
   }
 }

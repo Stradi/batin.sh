@@ -3,8 +3,9 @@ module.exports = {
       siteUrl: "https://www.batin.sh",
       brand: "Batın Evirgen",
       navigationLinks: [
-        { text: "Blog", to: "/blog" },
-        { text: "About", to: "/about" }
+        { text: "Home", to: "/" },
+        { text: "About", to: "/about" },
+        { text: "Blog", to: "/blog" }
       ],
       seo: {
         title: "Batın Evirgen",
@@ -56,8 +57,7 @@ module.exports = {
             require("remark-math")
           ],
           rehypePlugins: [
-            require("rehype-slug"),
-            [require("rehype-autolink-headings"), { behaviour: "wrap" }]
+            require("rehype-slug")
           ]
         }
       },

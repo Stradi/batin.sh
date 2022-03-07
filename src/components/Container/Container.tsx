@@ -14,7 +14,7 @@ Container.defaultProps = {
 
 function Container(props: ContainerProps) {
   const classes = cx(
-    "container px-4",
+    "container max-w-full sm:max-w-xl px-2",
     { "mx-auto": props.isCentered }, 
     props.className
   )

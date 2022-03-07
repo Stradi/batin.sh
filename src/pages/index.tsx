@@ -3,28 +3,20 @@ import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { Header } from "../components/Header";
-import { ArticleList } from "../components/ArticleList/ArticleList";
+import { BigArticleList } from "../components/BigArticleList";
 
 import { QueryUtils } from "../utils";
 import { GetAllArticlesQueryResult } from "../types";
 
-//TODO:
-// - Change <b></b> tags to Links to actual pages. For example <b>articles</b> should
-// changed into <Link to="articles" classNames="">articles</Link> and so on.
 function IndexPage(props: PageProps<GetAllArticlesQueryResult>) {
   const articles = QueryUtils.getAllArticles(props.data, true);
 
   return (
     <Layout>
       <Header mainText="Hi, I am Batın">
-        <div>
-          Most of the time, I draw <b>stuff</b> with code.
-        </div>
-        <div>
-          I also try to write <b>articles</b> about <b>Generative Art</b>, <b>WebGL</b>, <b>Three.js</b>, <b>React</b> and more.
-        </div>
+        Most of the time I draw stuff with code. I also try to <br></br>write articles about generative art and stuff.
       </Header>
-      <ArticleList title="Latest Articles" articles={ articles } />
+      <BigArticleList title="Here are some featured articles" articles={ articles } />
     </Layout>
   )
 }
@@ -32,16 +24,20 @@ function IndexPage(props: PageProps<GetAllArticlesQueryResult>) {
 export const query = graphql`
   query {
     allMdx(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { fields: { source: { eq: "blog" }}}
+      sort: {fields: frontmatter___date, order: DESC}
+      filter: {fields: {source: {eq: "blog"}}, frontmatter: {featured: {eq: true}}}
+      limit: 3
     ) {
       nodes {
         frontmatter {
           title
+          description
+          image {
+            childImageSharp {
+              gatsbyImageData(aspectRatio: 1)
+            }
+          }
           date(formatString: "MMMM D, YYYY")
-        }
-        fields {
-          source
         }
         id
         slug

@@ -17,22 +17,25 @@ NavigationBar.defaultProps = {
   ]
 };
 
+//TODO: Add burger menu for mobile
 function NavigationBar(props: NavigationBarProps) {
   return (
-    <header className="bg-background text-on-surface sticky top-0 w-full z-50 shadow-lg backdrop-blur-md bg-opacity-75">
-      <Container className="sm:flex sm:justify-between sm:items-center py-4">
-          <div className="text-center pb-4 sm:pb-0">
-            <NavigationItem text={ props.brandText } isBrand />
-          </div>
-          <nav className="block text-center sm:inline">
+    <header className="w-full">
+      <div className="bg-black text-center text-white text-lg font-bold">
+        { props.brandText }
+      </div>
+      <div className="flex justify-center py-4 shadow-md">
+          <nav className="">
             {
-            props.links.map(link => (
-              <NavigationItem to={ link.to } text={ link.text } key={ link.to } />
-            ))
-            }
-            <ThemeSwitcher />
+              props.links.map(link => (
+                <NavigationItem to={ link.to } text={ link.text } key={ link.to } />
+                ))
+              }
+            <div className="absolute right-0 top-0">
+              <ThemeSwitcher />
+            </div>
           </nav>
-      </Container>
+      </div>
     </header>
   )
 }

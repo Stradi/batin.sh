@@ -1,8 +1,8 @@
-import { ArticleList, ArticleListProps } from "./ArticleList";
+import { BigArticleList, BigArticleListProps } from "./BigArticleList";
 import { SingleArticle, SingleArticleProps } from "./SingleArticle";
 export {
-  ArticleList,
+  BigArticleList,
   SingleArticle,
-  type ArticleListProps,
+  type BigArticleListProps,
   type SingleArticleProps
 };

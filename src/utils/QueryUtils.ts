@@ -4,7 +4,12 @@ import { ArticleType, GetAllArticlesQueryResult, GetArticleQueryResult, GetPageQ
 // For example useGetAllArticles() hook would return ArticleType[] etc.
 
 function getAllArticles(query: GetAllArticlesQueryResult, absoluteURL?: boolean): ArticleType[] {
-  return query.allMdx.nodes.map(node => {
+  //Adding this code because (maybe) in the future we may want
+  //to create two different named queries in single graphql tag.
+  //Maybe we can delete this, I don't know actually.
+  const index = (query["featured"] && query["featured"].nodes.length > 0) ? "featured" : "allMdx";
+  
+  return query[index].nodes.map(node => {
     return getArticle({
       mdx: {
         frontmatter: {

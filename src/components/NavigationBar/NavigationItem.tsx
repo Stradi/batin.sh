@@ -5,24 +5,16 @@ import cx from "classnames";
 interface NavigationItemProps {
   to?: string;
   text?: string;
-  isBrand?: boolean;
 }
 
 NavigationItem.defaultProps = {
   to: "/",
   text: "Default Link",
-  isBrand: false
 }
 
 function NavigationItem(props: NavigationItemProps) {
-  const classes = cx(
-    "mx-2 px-4 text-on-surface transition hover:text-primary",
-    { "text-3xl font-bold": props.isBrand },
-    { "text-lg": !props.isBrand }
-  )
-
   return (
-    <Link to={ props.to } className={ classes }>
+    <Link to={ props.to } className="px-6 py-2 rounded-md mx-2 bg-gray font-bold transition-colors duration-100 hover:bg-primary hover:text-on-primary" activeClassName="bg-primary text-on-primary">
       { props.text }
     </Link>
   )

@@ -3,7 +3,7 @@ import { PageProps, graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { ArticleList } from "../components/ArticleList/ArticleList";
+import { SmallArticleList } from "../components/SmallArticleList";
 
 import { GetAllArticlesQueryResult } from "../types";
 import { QueryUtils } from "../utils";
@@ -17,7 +17,7 @@ function TagTemplate(props: PageProps<GetAllArticlesQueryResult>) {
         title={ `Posts tagged with ${ props.pageContext["tag"] }` }
         url={ `tag/${ props.pageContext["tag"] }` }
       />
-      <ArticleList title={ `Posts tagged with ${ props.pageContext["tag"] }` } articles={ articles } />
+      <SmallArticleList title={ `Posts tagged with ${ props.pageContext["tag"] }` } articles={ articles } />
     </Layout>
   )
 }

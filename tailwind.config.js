@@ -22,14 +22,12 @@ module.exports = {
     extend: {
       colors: {
         "background": withOpacity("--color-background"),
-        "surface": withOpacity("--color-surface"),
-        "primary": withOpacity("--color-primary"),
-        "secondary": withOpacity("--color-secondary"),
         "on-background": withOpacity("--color-on-background"),
-        "on-surface": withOpacity("--color-on-surface"),
+
+        "primary": withOpacity("--color-primary"),
         "on-primary": withOpacity("--color-on-primary"),
-        "on-secondary": withOpacity("--color-on-secondary"),
-        "surface-hover": withOpacity("--color-surface-hover")
+
+        "gray": withOpacity("--color-gray")
       },
       typography: {
         DEFAULT: {
@@ -37,32 +35,16 @@ module.exports = {
             "*": {
               color: withOpacity("--color-on-background")()
             },
-            "h1, h2, h3, h4, th": {
-              fontWeight: "700",
-              marginBottom: "1rem !important",
-              marginTop: "1rem !important",
-              fontFamily: "Merriweather, serif"
-            },
-            p: {
-              marginBottom: "1rem",
-              marginTop: "1rem"
-            },
-            a: {
-              color: withOpacity("--color-on-background")(),
-              "&:hover": {
-                color: withOpacity("--color-primary", true)()
-              }
-            }
           }
         }
       },
       fontFamily: {
-        "display": "Merriweather, serif",
         "body": "Source Sans Pro, sans-serif"
       }
     },
   },
   plugins: [
-    require("@tailwindcss/typography")
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp")
   ],
 }

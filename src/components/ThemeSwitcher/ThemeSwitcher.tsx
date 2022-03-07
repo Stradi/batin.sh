@@ -16,7 +16,7 @@ function ThemeSwitcher() {
       ctx => (
           <a className="mx-2 px-4 font-medium text-on-surface text-lg hover:cursor-pointer" onClick={ () => { changeTheme(ctx) }}>
             {
-              ctx.theme == Theme.Minimal ? "🌙" : "☀︎"
+              ctx.theme == Theme.Minimal ? "🌚" : "🌕"
             }
           </a>
         )

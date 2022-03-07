@@ -2,57 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 /* TODO: Add secondary colors and more themes. */
+/* TODO: Update color scheme of code blocks and panel. */
 :root {
-  --color-primary-200: 249, 148, 143;
-  --color-primary-300: 241, 104, 100;
-  --color-primary-500: 255, 42, 20;
+  --color-primary-100: 255, 248, 225;
+  --color-primary-200: 255, 236, 179;
+  --color-primary-300: 255, 224, 130;
+  --color-primary-400: 255, 213, 79;
+  --color-primary-500: 255, 202, 40;
+  --color-primary-600: 255, 193, 7;
+  --color-primary-700: 255, 179, 0;
+  --color-primary-800: 255, 160, 0;
+  --color-primary-900: 255, 143, 0;
 }
 
 @layer base {
   [data-theme="minimal"] {
-    --color-background: 255, 255, 255;
-    --color-surface: 230, 230, 230;
-    --color-primary: var(--color-primary-500);
-    --color-secondary: var(--color-primary-200);
-    --color-on-background: 0, 0, 0;
-    --color-on-surface: 0, 0, 0;
-    --color-on-primary: 255, 255, 255;
-    --color-on-secondary: 0, 0, 0;
+    --color-gray: 229, 231, 235;
 
-    --color-surface-hover: 210, 210, 210;
+    --color-background: 255, 255, 255;
+    --color-on-background: 0, 0, 0;
+
+    --color-primary: var(--color-primary-400);
+    --color-on-primary: 103, 43, 15;
   }
   
   [data-theme="dark"] {
+    --color-gray: 32, 32, 32;
+
     --color-background: 18, 18, 18;
-    --color-surface: 13, 13, 13;
-    --color-primary: var(--color-primary-300);
-    --color-secondary: var(--color-primary-200);
-    --color-on-background: 240, 240, 240;
-    --color-on-surface: 240, 240, 240;
-    --color-on-primary: 0, 0, 0;
-    --color-on-secondary: 0, 0, 0;
-    
-    --color-surface-hover: 30, 30, 30;
+    --color-on-background: 215, 215, 215;
+
+    --color-primary: var(--color-primary-400);
+    --color-on-primary: 85, 35, 12;
   }
 }
 
 .prose a {
-  @apply decoration-primary !important
+  @apply decoration-primary rounded-sm !important
 }
 
 .prose a:hover {
   @apply bg-primary text-on-primary !important
 }
 
-code[class*="language-"] {
-  @apply rounded-none before:content-none after:content-none px-2 !important
+.prose hr {
+  @apply my-6
+}
+
+.prose p {
+  @apply my-1 !important;
+}
+
+.prose li {
+  @apply my-1 !important;
+}
+
+.prose blockquote {
+  @apply border-l-primary my-4 py-6
+}
+
+.prose blockquote p {
+  @apply my-0;
+}
+
+img {
+  @apply rounded-md !important;
+}
+
+code {
+  @apply rounded-md before:content-none after:content-none text-base !important
+}
+
+/* Inline code blocks */
+:not(pre) > code {
+  @apply px-2 py-1 !important;
 }
 
 .gatsby-highlight pre[class*="language-"] {
-  @apply py-2 px-4 rounded-none
+  @apply py-2 px-4;
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
