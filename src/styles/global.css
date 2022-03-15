@@ -53,7 +53,7 @@
 }
 
 .prose p {
-  @apply my-1 !important;
+  @apply mb-2 !important;
 }
 
 .prose li {
@@ -66,6 +66,10 @@
 
 .prose blockquote p {
   @apply my-0;
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6) {
+  @apply mt-4 mb-1 md:mt-8 md:mb-2 !important;
 }
 
 img {

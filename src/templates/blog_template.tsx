@@ -29,7 +29,7 @@ function BlogTemplate(props: PageProps<GetArticleQueryResult>) {
         image={ article.image && article.image.publicURL }
       />
       <Container>
-        <div className="mt-8 prose md:prose-xl max-w-none">
+        <div className="mt-8 prose prose-lg md:prose-xl max-w-none">
           <div className="text-center">
             <p>Written by <Link to="/about" className="font-bold px-2 py-1 transition duration-100 hover:bg-surface-hover">{ article.author }</Link> on { DateUtils.toReadableFullDate(new Date(props.data.mdx.frontmatter.date)) }</p>
             <h1>{ article.title }</h1>
